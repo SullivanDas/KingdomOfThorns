@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using static Actions;
@@ -100,6 +101,14 @@ public class PlayerTeamController : MonoBehaviour
         ToggleActionMenu(true, index);
     }
 
+    /// <summary>
+    /// Checks if the player team has been defeated
+    /// </summary>
+    /// <returns></returns>
+    public bool IsDefeated()
+    {
+        return !FighterList.Where(x => x.CurrentHealth > 0).Any();
+    }
     /// <summary>
     /// Enables the action menu - called to handle direct set of enable
     /// </summary>

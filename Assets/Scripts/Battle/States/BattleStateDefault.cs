@@ -47,14 +47,13 @@ public class BattleStateDefault : MonoBehaviour
 
     }
 
-    protected virtual void FinishState()
+    protected virtual void FinishState(EventFinishedArgs e)
     {
         //Ensure we can't end this state twice.
         if (!finished)
         {
             finished = true;
 
-            EventFinishedArgs e = new EventFinishedArgs();
             OnStateFinished?.Invoke(this, e);
         }
     }

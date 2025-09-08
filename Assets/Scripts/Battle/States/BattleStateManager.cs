@@ -27,7 +27,8 @@ public class BattleStateManager : MonoBehaviour
     #endregion
 
     #region properties
-
+    [field: SerializeField]
+    public BattleManager battleManager { get; private set; }
     public int currentStateIndex { get; private set; }
     public int prevStateIndex { get; private set; }
 
@@ -57,6 +58,24 @@ public class BattleStateManager : MonoBehaviour
     {
         states[currentStateIndex].OnEnter();
         states[currentStateIndex].OnStateFinished += OnStateFinished;
+    }
+
+    /// <summary>
+    /// Tries to convert the given key to it's associated index
+    /// </summary>
+    /// <param name="state"></param>
+    /// <returns></returns>
+    public int GetStateKey(string state)
+    {
+        try
+        {
+            int key = stateKeys.IndexOf(state);
+            return key;
+        }
+        catch
+        {
+            return -1;
+        }
     }
 
     /// <summary>

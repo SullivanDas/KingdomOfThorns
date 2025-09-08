@@ -6,4 +6,5 @@ using System.Collections.Generic;
 public class ActionList 
 {
     public List<BattleAction> actions;
+
 }

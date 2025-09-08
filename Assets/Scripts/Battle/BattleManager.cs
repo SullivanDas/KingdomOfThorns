@@ -7,11 +7,7 @@ public class BattleManager : MonoBehaviour
 
     #region fields
 
-    [SerializeField]
-    private List<ActionList> enemyActionBacklog;
 
-    [SerializeField]
-    private PlayerTeamController playerTeamController;
 
     [SerializeField]
     private EnemyGridController enemyGridController;
@@ -25,7 +21,11 @@ public class BattleManager : MonoBehaviour
     #region properties
 
     [field: SerializeField]
-    public BattleManager battleManager { get; private set; }
+    public ActionGrid enemyActionBacklog { get; private set; }
+
+    [field: SerializeField]
+    public PlayerTeamController playerTeamController { get; private set; }
+
 
     public ActionList PlayerActions { get; set; }
     #endregion
