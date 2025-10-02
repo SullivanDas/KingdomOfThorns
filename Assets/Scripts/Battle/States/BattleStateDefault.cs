@@ -39,6 +39,7 @@ public class BattleStateDefault : MonoBehaviour
     /// </summary>
     public virtual void OnEnter()
     {
+        Debug.Log("New State Started: " + GetStateName());
         finished = false;
     }
 
@@ -60,7 +61,7 @@ public class BattleStateDefault : MonoBehaviour
 
     public virtual string GetStateName()
     {
-        return "BattleStateDefault";
+        return this.GetType().Name;
     }
     #endregion
 

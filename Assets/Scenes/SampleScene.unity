@@ -778,51 +778,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 339609861}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce5b865832b41004a93ec4b4631647f6, type: 3}
+  m_Script: {fileID: 11500000, guid: e70ea4120c5c2a541ad99e1c2d460d2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  splineContainer: {fileID: 1391237318}
-  queuedActions:
+  splineContainer: {fileID: 0}
+  battleManager: {fileID: 0}
+  Grid:
   - actions:
     - ActionName: 0
       Health: 0
       modifier: 0
-    - ActionName: 0
-      Health: 0
-      modifier: 0
-    - ActionName: 0
-      Health: 0
-      modifier: 0
-    - ActionName: 0
-      Health: 0
-      modifier: 0
-  - actions:
-    - ActionName: 0
-      Health: 0
-      modifier: 0
-    - ActionName: 0
-      Health: 0
-      modifier: 0
-    - ActionName: 0
-      Health: 0
-      modifier: 0
-    - ActionName: 0
-      Health: 0
-      modifier: 0
-  - actions:
-    - ActionName: 0
-      Health: 0
-      modifier: 0
-    - ActionName: 0
-      Health: 0
-      modifier: 0
-    - ActionName: 0
-      Health: 0
-      modifier: 0
-    - ActionName: 0
-      Health: 0
-      modifier: 0
-  actionObject: {fileID: 9150683047232743832, guid: 9e72b13f628b2d846b336e3331ff1081, type: 3}
+      ActionDelayTime: 0
+  - actions: []
+  - actions: []
+  actionObject: {fileID: 0}
+  <RowCount>k__BackingField: 0
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1949,6 +1919,205 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1137474710}
   m_CullTransparentMesh: 1
+--- !u!1 &1150557714
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1150557726}
+  - component: {fileID: 1150557725}
+  - component: {fileID: 1150557724}
+  - component: {fileID: 1150557723}
+  - component: {fileID: 1150557722}
+  - component: {fileID: 1150557721}
+  - component: {fileID: 1150557720}
+  - component: {fileID: 1150557719}
+  - component: {fileID: 1150557718}
+  - component: {fileID: 1150557717}
+  - component: {fileID: 1150557716}
+  - component: {fileID: 1150557715}
+  m_Layer: 0
+  m_Name: StateManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1150557715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1150557714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44d14bff73657c14598f44a55792c4ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <NextState>k__BackingField: 
+--- !u!114 &1150557716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1150557714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14bf913c0bfbbed46adcc1b6421b8f75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <NextState>k__BackingField: 
+--- !u!114 &1150557717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1150557714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9e4fe75cb94ef24aae278be4b2517f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <NextState>k__BackingField: 
+  delay: 1
+--- !u!114 &1150557718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1150557714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb318fa9035b8f44e9c0631215cafab2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <NextState>k__BackingField: 
+--- !u!114 &1150557719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1150557714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14bf913c0bfbbed46adcc1b6421b8f75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <NextState>k__BackingField: 
+--- !u!114 &1150557720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1150557714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9e4fe75cb94ef24aae278be4b2517f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <NextState>k__BackingField: 
+  delay: 1
+--- !u!114 &1150557721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1150557714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf28ff215ff2c364a8b18b1b88bda2d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <NextState>k__BackingField: 
+--- !u!114 &1150557722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1150557714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09edcd2267d020e49aa8da147c1c2d42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <NextState>k__BackingField: 
+--- !u!114 &1150557723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1150557714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23460f88fede8bf4980eede32ca919a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <NextState>k__BackingField: 
+--- !u!114 &1150557724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1150557714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a745c2d313adce4fac00f3ede0dda45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <NextState>k__BackingField: 
+--- !u!114 &1150557725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1150557714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3c1fe720166534fbd5248aabd25b77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  states:
+  - {fileID: 1150557724}
+  - {fileID: 1150557723}
+  - {fileID: 1150557722}
+  - {fileID: 1150557721}
+  - {fileID: 1150557720}
+  - {fileID: 1150557719}
+  - {fileID: 1150557718}
+  - {fileID: 1150557717}
+  - {fileID: 1150557716}
+  - {fileID: 1150557715}
+  statesToSkipAfterLoop: 1
+  <battleManager>k__BackingField: {fileID: 1465145880}
+--- !u!4 &1150557726
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1150557714}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.1138445, y: -7.5931506, z: 2.128669}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1345607399
 GameObject:
   m_ObjectHideFlags: 0
@@ -2446,21 +2615,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bea659010523fc409b6a297965dcc4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyActionBacklog:
-  - actions:
-    - ActionName: 0
-      Health: 0
-      modifier: 0
-  - actions:
-    - ActionName: 0
-      Health: 0
-      modifier: 0
-  - actions:
-    - ActionName: 0
-      Health: 0
-      modifier: 0
-  playerTeamController: {fileID: 908672017}
-  enemyGridController: {fileID: 339609863}
+  <enemyGridController>k__BackingField: {fileID: 0}
+  <playerTeamController>k__BackingField: {fileID: 908672017}
 --- !u!4 &1465145881
 Transform:
   m_ObjectHideFlags: 0
@@ -3055,3 +3211,4 @@ SceneRoots:
   - {fileID: 693247680}
   - {fileID: 723753780}
   - {fileID: 1391237319}
+  - {fileID: 1150557726}

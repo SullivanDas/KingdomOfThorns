@@ -61,9 +61,19 @@ public class PlayerTeamController : MonoBehaviour
 
     #region methods
 
-    public void QueueAction(BattleAction action)
+    public void QueueAction(BattleAction action, List<Target> targets, Fighter owner)
     {
-        PlayerActions.actions.Add(action);
+        PlayerActions.actions.Add(new ActionList.ActionListMember(action, targets, owner));
+    }
+
+    /// <summary>
+    /// Gets the actions that are going to resolve this turn
+    /// </summary>
+    /// <param name="remove">True if we should clear the items that are returned from the list</param>
+    /// <returns></returns>
+    public List<ActionList.ActionListMember> GetActions(bool remove)
+    {
+        return PlayerActions.actions;
     }
 
     /// <summary>

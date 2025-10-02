@@ -27,7 +27,7 @@ public class VerifyGameState : BattleStateDefault
 
     protected void CheckListEmpty()
     {
-        if (battleStateManager.battleManager.enemyActionBacklog.IsEmpty())
+        if (battleStateManager.battleManager.enemyGridController.IsEmpty())
         {
             //We've finished the battle go to end state
             int key = battleStateManager.GetStateKey("EndBattleState");

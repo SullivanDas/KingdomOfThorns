@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,25 +8,16 @@ public class BattleManager : MonoBehaviour
 
     #region fields
 
+    [field: SerializeField]
+    public ActionGridController enemyGridController { get; private set; }
 
-
-    [SerializeField]
-    private EnemyGridController enemyGridController;
-
-    [SerializeField]
-    private Dictionary<string, BattleStateDefault> battleStates;
+    [field: SerializeField]
+    public PlayerTeamController playerTeamController { get; private set; }
 
     #endregion
 
 
     #region properties
-
-    [field: SerializeField]
-    public ActionGrid enemyActionBacklog { get; private set; }
-
-    [field: SerializeField]
-    public PlayerTeamController playerTeamController { get; private set; }
-
 
     public ActionList PlayerActions { get; set; }
     #endregion

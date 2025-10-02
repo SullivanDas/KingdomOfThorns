@@ -27,6 +27,7 @@ public class BattleStateManager : MonoBehaviour
     #endregion
 
     #region properties
+
     [field: SerializeField]
     public BattleManager battleManager { get; private set; }
     public int currentStateIndex { get; private set; }

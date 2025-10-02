@@ -5,12 +5,12 @@ using UnityEngine;
 /// </summary>
 public class Target
 {
-    public ActionList TargetList { get; private set; }
-    public int TargetIndex { get; private set; }
+    public int TargetCol { get; private set; }
+    public int TargetRow { get; private set; }
 
-    public Target(ActionList targetList, int index)
+    public Target(int col, int row)
     {
-        TargetList = targetList; 
-        TargetIndex = index;
+        TargetCol = col;
+        TargetRow = row;
     }
 }

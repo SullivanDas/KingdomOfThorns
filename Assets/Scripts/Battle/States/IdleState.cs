@@ -19,6 +19,6 @@ public class IdleState : BattleStateDefault
     {
         yield return new WaitForSeconds(delay);
 
-        FinishState();
+        FinishState( new EventFinishedArgs());
     }
 }
