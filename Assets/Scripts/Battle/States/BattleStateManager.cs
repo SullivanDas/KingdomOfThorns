@@ -22,7 +22,7 @@ public class BattleStateManager : MonoBehaviour
     /// <summary>
     /// A dictionary of the states controlled by the state manager
     /// </summary>
-    private List<string> stateKeys;
+    private List<string> stateKeys = new List<string>();
 
     #endregion
 

@@ -33,7 +33,8 @@ public class ResolvePlayerActionsState : BattleStateDefault
     /// </summary>
     private void OnDestroy()
     {
-        gridController.OnGridUpdateComplete -= gridController.OnGridUpdateComplete;
+        if(gridController != null)
+            gridController.OnGridUpdateComplete -= gridController.OnGridUpdateComplete;
     }
 
     /// <summary>
