@@ -30,9 +30,9 @@ public class Fighter : MonoBehaviour
     #endregion
     #region Unity
 
-    private void Start()
+    private void Awake()
     {
-
+        CurrentHealth = MaxHealth;
     }
 
     #endregion

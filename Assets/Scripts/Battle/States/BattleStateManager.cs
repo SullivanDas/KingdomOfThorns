@@ -48,17 +48,26 @@ public class BattleStateManager : MonoBehaviour
         {
             stateKeys.Add(state.GetStateName());
         }
-        currentStateIndex = 0;
+        currentStateIndex = statesToSkipAfterLoop;
         nextState = -1;
     }
+
+    private void Start()
+    {
+        StartStateManager();
+    }
+    #endregion
+
+    #region methods
 
     /// <summary>
     /// Starts the state machine
     /// </summary>
     public void StartStateManager()
     {
-        states[currentStateIndex].OnEnter();
         states[currentStateIndex].OnStateFinished += OnStateFinished;
+        states[currentStateIndex].OnEnter();
+
     }
 
     /// <summary>
@@ -91,7 +100,11 @@ public class BattleStateManager : MonoBehaviour
         BattleStateDefault.EventFinishedArgs args = (BattleStateDefault.EventFinishedArgs)e;
 
         //Wrap around if we've hit the end of the state queue
-        nextState = (currentStateIndex + 1) % states.Count + statesToSkipAfterLoop;
+        nextState = (currentStateIndex + 1) % states.Count;
+
+        if (nextState == 0)
+            nextState += statesToSkipAfterLoop;
+
 
         if (args != null)
         {
@@ -102,8 +115,8 @@ public class BattleStateManager : MonoBehaviour
         }
 
         currentStateIndex = nextState;
-        states[currentStateIndex].OnEnter();
         states[currentStateIndex].OnStateFinished += OnStateFinished;
+        states[currentStateIndex].OnEnter();
     }
 
     //Ensure all events have been unregistered 

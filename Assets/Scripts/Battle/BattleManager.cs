@@ -19,12 +19,11 @@ public class BattleManager : MonoBehaviour
 
     #region properties
 
-    public ActionList PlayerActions { get; set; }
     #endregion
 
     #region Unity
 
-    private void Start()
+    private void Awake()
     {
         enemyGridController.PopulateGrid(); 
 

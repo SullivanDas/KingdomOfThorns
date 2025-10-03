@@ -16,7 +16,7 @@ public class ResolveEnemyActionsState : BattleStateDefault
     {
         foreach (var action in battleStateManager.battleManager.enemyGridController.GetActions(true))
         {
-            action.CallAction(null, null);
+            action.CallFunc(null, null);
             yield return new WaitForSeconds(action.action.ActionDelayTime);
         }
 

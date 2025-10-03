@@ -39,7 +39,7 @@ public class ActionObject : MonoBehaviour
 
     }
 
-    public void CallAction(List<Target> targets, Fighter owner)
+    public void CallFunc(List<Target> targets, Fighter owner)
     {
         Actions.CallFunc(action.ActionName, targets, owner);
         Die();

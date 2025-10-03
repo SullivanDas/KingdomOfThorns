@@ -59,6 +59,15 @@ public class PlayerTeamController : MonoBehaviour
     #endregion
 
 
+    #region Unity
+
+    private void Awake()
+    {
+        PlayerActions = new ActionList();
+    }
+
+    #endregion
+
     #region methods
 
     public void QueueAction(BattleAction action, List<Target> targets, Fighter owner)

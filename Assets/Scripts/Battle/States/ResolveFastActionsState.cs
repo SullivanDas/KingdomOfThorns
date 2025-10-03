@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using static ActionList;
 
 /// <summary>
 /// Used to resolve any fast actions before normal actions are resolved. 
@@ -10,13 +11,13 @@ using UnityEngine;
 public class ResolveFastActionsState : BattleStateDefault
 {
     private List<ActionObject> enemyFastActions;
-    private List<ActionObject> playerFastActions;
+    private List<ActionListMember> playerFastActions;
 
     public override void OnEnter()
     {
         base.OnEnter();
         enemyFastActions = battleStateManager.battleManager.enemyGridController.GetFastActions();
-        playerFastActions = battleStateManager.battleManager.PlayerActions.GetFastActions();
+        playerFastActions = battleStateManager.battleManager.playerTeamController.PlayerActions.GetFastActions();
 
         if (enemyFastActions.Any() || playerFastActions.Any())
         {
@@ -32,13 +33,13 @@ public class ResolveFastActionsState : BattleStateDefault
     {
         foreach (var action in playerFastActions)
         {
-            action.CallAction(null, null);
-            yield return new WaitForSeconds(action.action.ActionDelayTime);
+            action.CallFunc();
+            yield return new WaitForSeconds(action.Action.ActionDelayTime);
         }
 
         foreach (var action in enemyFastActions)
         {
-            action.CallAction(null, null);
+            action.CallFunc(null, null);
             yield return new WaitForSeconds(action.action.ActionDelayTime);
         }
 

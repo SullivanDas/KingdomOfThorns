@@ -10,15 +10,16 @@ using static UnityEngine.UI.GridLayoutGroup;
 [Serializable]
 public class ActionList 
 {
-    public List<ActionListMember> actions;
+    public List<ActionListMember> actions = new List<ActionListMember>();
 
     /// <summary>
     /// Returns any fast actions that will resolve this round. Will be null if empty
     /// </summary>
     /// <returns></returns>
-    public List<ActionObject> GetFastActions()
+    public List<ActionListMember> GetFastActions()
     {
-        return (List<ActionObject>)actions.Where(x => x.Action.modifier == BattleAction.Modifier.Fast);
+        var list = actions.Where(x => x.Action.modifier == BattleAction.Modifier.Fast);
+        return list.ToList<ActionListMember>();
 
     }
 

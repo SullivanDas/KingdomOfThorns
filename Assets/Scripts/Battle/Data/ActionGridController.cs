@@ -51,13 +51,30 @@ public class ActionGridController : MonoBehaviour
 
     #endregion
 
+    #region Unity
+
+    private void Awake()
+    {
+        //Ensure the array of lists does not have null members
+        for (int i = 0; i < GridObjects.Length; i++)
+        {
+            GridObjects[i] = new List<ActionObject>();
+        }
+    }
+
+    #endregion
+
+
+    #region methods
+
     /// <summary>
     /// Checks if we've finished the battle
     /// </summary>
     /// <returns></returns>
     public bool IsEmpty()
     {
-        return GridObjectsBacklog.Where(x => x.Count != 0).Any();
+        return GridObjects.Any(x => x == null || x.Count()<=0) && GridObjectsBacklog.Any(x => x == null || x.Count() <= 0);
+        //GridObjectsBacklog.Where(x => x.Count != 0).Any();
     }
 
     /// <summary>
@@ -68,6 +85,8 @@ public class ActionGridController : MonoBehaviour
     /// <returns></returns>
     public ActionObject PopActionObject(int col, List<ActionObject>[] targetList)
     {
+        if (!targetList.Any(x => x != null))
+            return null;
         if (targetList[col].Count > 0)
         {
             ActionObject returnValue = targetList[col][0];
@@ -92,7 +111,8 @@ public class ActionGridController : MonoBehaviour
     public List<ActionObject> GetFastActions()
     {
         List<ActionObject> fastActions = GetActions(false);
-        return (List<ActionObject>)fastActions.Where(x => x.action.modifier == BattleAction.Modifier.Fast);
+        var filteredActions = fastActions.Where(x => x.action.modifier == BattleAction.Modifier.Fast);
+        return filteredActions.ToList<ActionObject>();
 
     }
 
@@ -129,22 +149,24 @@ public class ActionGridController : MonoBehaviour
             int row = 0;
             for (int j = 0; j < Grid[i].actions.Count(); j++)
             {
+                //Instantiate, Initialize, then move onto the spline
+                GameObject obj = Instantiate(actionObject, splineContainer.transform, false);
+                ActionObject actionObj = obj.GetComponent<ActionObject>();
+                actionObj.Initialize(Grid[i].actions[j]);
+                
+                //Only move enough objects onto the grid as the grid allows for, also populate the gridObjects lists
                 if (j < RowCount)
-                {        
-                    //Instantiate, Initialize, then move onto the spline
-                    GameObject obj = Instantiate(actionObject, splineContainer.transform, false);
-                    obj.GetComponent<ActionObject>().Initialize(Grid[i].actions[j]);
-
-
+                {
+                    GridObjects[i].Add(actionObj);
                     var node = splineContainer.Splines[i][j];
                     obj.transform.position += (Vector3)node.Position;
                 }
                 else
                 {
-                    //Currently inactive objects we'll pull them onto the screen when we need them
-                    GameObject obj = Instantiate(actionObject, splineContainer.transform, false);
-                    obj.GetComponent<ActionObject>().Initialize(Grid[i].actions[j]);
+                    //Fill the remaining objects into the backlog
+                    GridObjectsBacklog[i].Add(actionObj);
                 }
+
             }
         }
 
@@ -188,7 +210,8 @@ public class ActionGridController : MonoBehaviour
         //Fill in the newly empty spaces with objects from the backlog
         for(int i = 0; i < RowCount - newList.Count(); i++)
         {
-            newList.Add(PopActionObject(col, GridObjectsBacklog));
+            if(GridObjectsBacklog.Any(x => x != null))
+                newList.Add(PopActionObject(col, GridObjectsBacklog));
         }
         GridObjects[col] = newList;
         StartCoroutine(SlideActionObjectsToNewPosition());
@@ -196,12 +219,21 @@ public class ActionGridController : MonoBehaviour
 
     private IEnumerator SlideActionObjectsToNewPosition()
     {
-        for(int i = 0; i < GridObjects.Count(); i++)
+        for (int i = 0; i < GridObjects.Count(); i++)
         {
-            int rowIndex = RowCount - 1;
+            //One of the lists may be empty before the others skip it
+            if (GridObjects[i] == null)
+                continue;
+
+            //We may be under the row index 
+            int rowIndex = GridObjects[i].Count - 1;
+
             List<ActionObject> col = GridObjects[i];
-            foreach(var knot in splineContainer[i].Knots)
+            foreach (var knot in splineContainer[i].Knots)
             {
+                //Can occur if there are less items left than there are knots
+                if (rowIndex < 0)
+                    break;
                 ActionObject obj = col[rowIndex];
                 obj.transform.position = splineContainer.transform.position + (Vector3)knot.Position;
                 rowIndex--;
@@ -220,4 +252,7 @@ public class ActionGridController : MonoBehaviour
     {
         GridObjects[target.TargetCol][target.TargetRow].Damage(amount);
     }
+
+    #endregion
+
 }

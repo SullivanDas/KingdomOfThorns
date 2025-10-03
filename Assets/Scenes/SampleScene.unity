@@ -1962,6 +1962,7 @@ GameObject:
   - component: {fileID: 1150557726}
   - component: {fileID: 1150557725}
   - component: {fileID: 1150557724}
+  - component: {fileID: 1150557727}
   - component: {fileID: 1150557723}
   - component: {fileID: 1150557722}
   - component: {fileID: 1150557721}
@@ -2124,6 +2125,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   states:
   - {fileID: 1150557724}
+  - {fileID: 1150557727}
   - {fileID: 1150557723}
   - {fileID: 1150557722}
   - {fileID: 1150557721}
@@ -2150,6 +2152,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1150557727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1150557714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9e4fe75cb94ef24aae278be4b2517f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <NextState>k__BackingField: 
+  delay: 2
 --- !u!1 &1345607399
 GameObject:
   m_ObjectHideFlags: 0
@@ -2819,7 +2835,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5b6196fa96baea4b8920aabd2515cf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <MaxHealth>k__BackingField: 0
+  <MaxHealth>k__BackingField: 3
   fighterType: 0
   <AvailableActions>k__BackingField: 0000000000000000
 --- !u!4 &1806201280

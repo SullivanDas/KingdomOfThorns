@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 /// <summary>
@@ -5,5 +6,9 @@ using UnityEngine;
 /// </summary>
 public class UpdateBattleState : BattleStateDefault
 {
-    
+    public override void OnEnter()
+    {
+        base.OnEnter();
+        FinishState(new EventFinishedArgs());
+    }
 }
